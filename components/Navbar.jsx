@@ -60,7 +60,8 @@ const Navbar = () => {
           alt="Stay haven Logo"
           width={200}
           height={200}
-          className="h-[70px] md:h-[60px] lg:h-[100px]"
+           priority
+          className="h-[70px] w-auto md:h-[60px] lg:h-[100px]"
         />
       </Link>
 
