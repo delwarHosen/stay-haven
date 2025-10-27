@@ -49,12 +49,6 @@ const hotelSchema = new Schema({
         required: false,
         type: String
     },
-    // amenities: [
-    //     {
-    //         type: mongoose.Schema.Types.ObjectId,
-    //         ref: "amenities"
-    //     }
-    // ],
     amenities: {
         required: false,
         type: Array
@@ -62,4 +56,3 @@ const hotelSchema = new Schema({
 })
 
 export const hotelModel = mongoose.models.hotels ?? mongoose.model("hotels", hotelSchema)
-// export const HotelModel = mongoose.models.HotelModel ?? mongoose.model("HotelModel", hotelSchema)

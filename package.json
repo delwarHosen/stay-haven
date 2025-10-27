@@ -9,10 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "daisyui": "^5.3.9",
+    "@auth/mongodb-adapter": "^3.11.1",
     "mongodb": "^6.20.0",
     "mongoose": "^8.19.2",
     "next": "14.2.3",
+    "next-auth": "^5.0.0-beta.29",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.5.0"

@@ -2,9 +2,9 @@ import { getAllHotels } from "@/database/queries";
 import HotelCard from "./HotelCard";
 
 const HotelList = async () => {
-  
+
   const allHotels = await getAllHotels();
-  console.log(allHotels,"mongo db")
+  // console.log(allHotels,"mongo db")
 
   console.log("hello worldddd")
   return (
