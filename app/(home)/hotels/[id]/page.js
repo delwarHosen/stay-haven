@@ -4,8 +4,8 @@ import Summary from '@/components/hotel/details/Summary'
 import { getAllHotelsDetailById } from '@/database/queries'
 import React from 'react'
 
-export default async function HotelDetails({ params: { id } }) {
-    const hotelInfo = await getAllHotelsDetailById(id);
+export default async function HotelDetails({ params: { id }, searchParams: { checkin, checkout } }) {
+    const hotelInfo = await getAllHotelsDetailById(id, checkin, checkout);
 
     return (
         <>

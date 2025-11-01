@@ -1,9 +1,9 @@
 import { getAllHotels } from "@/database/queries";
 import HotelCard from "./HotelCard";
 
-const HotelList = async () => {
+const HotelList = async ({ destination, checkin, checkout }) => {
 
-  const allHotels = await getAllHotels();
+  const allHotels = await getAllHotels(destination, checkin, checkout);
   // console.log(allHotels,"mongo db")
 
   // console.log("hello worldddd")
@@ -15,6 +15,8 @@ const HotelList = async () => {
             <HotelCard
               key={hotel.id}
               hotelInfo={hotel}
+              checkin={checkin}
+              checkout={checkout}
             />
           ))
         }

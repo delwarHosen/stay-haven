@@ -10,6 +10,7 @@
   nav img {
     @apply h-[35px] md:h-[40px] lg:h-[50px];
   }
+
   nav ul {
     @apply hidden md:flex items-center gap-6;
   }
@@ -37,6 +38,10 @@
 
   .btn-primary {
     @apply bg-primary px-8 py-2 rounded-md block text-white font-bold shadow-lg hover:shadow-primary/50 active:scale-95 transition-all;
+  }
+
+  .btn-disabled {
+    @apply bg-gray-500 px-8 py-2 rounded-md block text-white font-bold shadow-lg active:scale-95 transition-all cursor-default;
   }
 
   #searchParams {
@@ -69,5 +74,9 @@
 
   input[type="checkbox"] {
     @apply mx-1
+  }
+
+  button:disabled {
+    @apply bg-gray-500 cursor-default
   }
 }
