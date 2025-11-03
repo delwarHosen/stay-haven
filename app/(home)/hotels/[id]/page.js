@@ -9,7 +9,7 @@ export default async function HotelDetails({ params: { id }, searchParams: { che
 
     return (
         <>
-            <Summary hotelInfo={hotelInfo} />
+            <Summary hotelInfo={hotelInfo} checkin={checkin} checkout={checkout} />
             <Gallery gallery={hotelInfo?.gallery} />
             <Overview overview={hotelInfo?.overview} />
         </>

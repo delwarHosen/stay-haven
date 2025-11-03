@@ -10,7 +10,11 @@ const bookingSchema = new Schema({
         required: true,
         type: ObjectId
     },
-    checkIn: {
+    checkin: {
+        required: true,
+        type: String
+    },
+    checkout: {
         required: true,
         type: String
     },

@@ -2,6 +2,7 @@ import { bookingModel } from "@/models/booking-model";
 import { hotelModel } from "@/models/hotel-model";
 import { ratingMoidel } from "@/models/rating-model";
 import { reviewMoidel } from "@/models/review-model";
+import { userMoidel } from "@/models/user-model";
 import { isDateInBetween, replaceMongoInArray, replaceMongoInObject } from "@/utils/data-utils";
 
 export async function getAllHotels(destination, checkin, checkout) {
@@ -70,3 +71,17 @@ export async function getReviewsForHotel(hotelId) {
     return replaceMongoInArray(reviews)
 }
 
+export async function getUserByEmail(email) {
+    const users = await userMoidel.find({ email: email }).lean();
+
+    return replaceMongoInObject(users[0])
+}
+
+export function getDayDifference(from, to) {
+    return ((new Date(to).getTime() - new Date(from).getTime()) / (24 * 60 * 60 * 1000)) + 1
+}
+
+export async function getBookingsByUser(userId) {
+    const bookings = await bookingModel.find({ userId: userId }).lean();
+    return replaceMongoInArray(bookings)
+}

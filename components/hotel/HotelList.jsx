@@ -3,6 +3,7 @@ import HotelCard from "./HotelCard";
 
 const HotelList = async ({ destination, checkin, checkout }) => {
 
+  console.log(checkin, "HotelListed")
   const allHotels = await getAllHotels(destination, checkin, checkout);
   // console.log(allHotels,"mongo db")
 
