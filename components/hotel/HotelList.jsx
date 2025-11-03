@@ -1,17 +1,16 @@
 import { getAllHotels } from "@/database/queries";
 import HotelCard from "./HotelCard";
+import NoHotel from "./NoHotel";
 
-const HotelList = async ({ destination, checkin, checkout }) => {
+const HotelList = async ({ destination, checkin, checkout, category }) => {
 
   console.log(checkin, "HotelListed")
-  const allHotels = await getAllHotels(destination, checkin, checkout);
-  // console.log(allHotels,"mongo db")
+  const allHotels = await getAllHotels(destination, checkin, checkout, category);
 
-  // console.log("hello worldddd")
   return (
     <div className="col-span-9">
       <div className="space-y-4">
-        {
+        {allHotels.length > 0 ? (
           allHotels.map((hotel) => (
             <HotelCard
               key={hotel.id}
@@ -19,7 +18,7 @@ const HotelList = async ({ destination, checkin, checkout }) => {
               checkin={checkin}
               checkout={checkout}
             />
-          ))
+          ))) : (<NoHotel />)
         }
 
       </div>

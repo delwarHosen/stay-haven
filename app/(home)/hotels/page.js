@@ -1,9 +1,19 @@
 import HotelList from "@/components/hotel/HotelList";
-import Filter from "@/components/search/Filter";
+import Filter from "@/components/search/filter/Filter";
 import Search from "@/components/search/Search";
 
 
-export default function HotelListPage({ searchParams: { destination, checkin, checkout } }) {
+const refineCategory = (category) => {
+    const decodedCategory = decodeURI(category);
+
+    if (decodedCategory === "undefined") {
+        return ""
+    }
+    return decodedCategory;
+
+}
+
+export default function HotelListPage({ searchParams: { destination, checkin, checkout, category } }) {
     return (
         <>
             <section className="bg-[url('/hero-bg1.jpg')] bg-cover bg-no-repeat bg-center pt-[100px] pb-[60px]">
@@ -22,6 +32,7 @@ export default function HotelListPage({ searchParams: { destination, checkin, ch
                         destination={destination}
                         checkin={checkin}
                         checkout={checkout}
+                        category={refineCategory(category)}
                     />
                 </div>
             </section>
