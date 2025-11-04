@@ -7,9 +7,10 @@ const nextConfig = {
                 hostname: "lh3.googleusercontent.com"
             },
             {
-                hostname: "a0.muscache.com"
+                hostname: "a0.muscache.com",
             }
-        ]
+            
+        ],
 
     },
 };

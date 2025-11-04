@@ -36,15 +36,19 @@ export default function HotelListPage({ searchParams: { destination, checkin, ch
                 </div>
             </section>
             <section className="py-12">
-                <div className="container grid grid-cols-12">
-                    <Filter />
-                    <HotelList
-                        destination={destination}
-                        checkin={checkin}
-                        checkout={checkout}
-                        category={refineCategory(category)}
-                        priceRange={refinepriceRange(priceRange)}
-                    />
+                <div className="container grid grid-cols-1 md:grid-cols-12 gap-6">
+                    <div className="md:col-span-3">
+                        <Filter />
+                    </div>
+                    <div className="md:col-span-9">
+                        <HotelList
+                            destination={destination}
+                            checkin={checkin}
+                            checkout={checkout}
+                            category={refineCategory(category)}
+                            priceRange={refinepriceRange(priceRange)}
+                        />
+                    </div>
                 </div>
             </section>
         </>

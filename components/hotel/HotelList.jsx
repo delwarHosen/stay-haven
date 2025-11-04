@@ -8,8 +8,8 @@ const HotelList = async ({ destination, checkin, checkout, category, priceRange 
   const allHotels = await getAllHotels(destination, checkin, checkout, category, priceRange);
 
   return (
-    <div className="col-span-9">
-      <div className="space-y-4">
+    <div className="col-span-9 md:w-full">
+      <div className="space-y-4 ">
         {allHotels.length > 0 ? (
           allHotels.map((hotel) => (
             <HotelCard

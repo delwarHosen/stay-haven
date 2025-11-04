@@ -3,11 +3,12 @@ import HotelSummaryInfo from "./HotelSummaryInfo";
 
 const HotelCard = ({ hotelInfo, checkin, checkout }) => {
   return (
-    <div className="flex gap-6 border border-gray/20 p-4 rounded-md">
+    <div className="flex flex-col sm:flex-row gap-6 border border-gray/20 p-4 rounded-md">
       <Image
-        className="max-h-[162px] max-w-[240px]"
-        src={hotelInfo?.thumbNailUrl}
-        alt=""
+        className="w-full sm:max-w-[240px] sm:max-h-[162px] h-auto object-cover rounded-md"
+        // src={hotelInfo?.thumbNailUrl}
+        src={hotelInfo?.thumbNailUrl || "/no-image found"}
+        alt={hotelInfo?.name}
         width={240}
         height={165}
       />
