@@ -13,7 +13,17 @@ const refineCategory = (category) => {
 
 }
 
-export default function HotelListPage({ searchParams: { destination, checkin, checkout, category } }) {
+const refinepriceRange = (priceRange) => {
+    const decodedpriceRange = decodeURI(priceRange);
+
+    if (decodedpriceRange === "undefined") {
+        return ""
+    }
+    return decodedpriceRange;
+
+}
+
+export default function HotelListPage({ searchParams: { destination, checkin, checkout, category, priceRange } }) {
     return (
         <>
             <section className="bg-[url('/hero-bg1.jpg')] bg-cover bg-no-repeat bg-center pt-[100px] pb-[60px]">
@@ -33,6 +43,7 @@ export default function HotelListPage({ searchParams: { destination, checkin, ch
                         checkin={checkin}
                         checkout={checkout}
                         category={refineCategory(category)}
+                        priceRange={refinepriceRange(priceRange)}
                     />
                 </div>
             </section>

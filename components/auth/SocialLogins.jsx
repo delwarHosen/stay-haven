@@ -11,7 +11,7 @@ const SocialLogins = ({ mode }) => {
 
   return (
     <>
-      <div className="text-center text-xs text-gray-500">
+      <div className="text-center text-[15px]">
         {
           mode === "register" ? (<Link className="underline" href="/login">Login </Link>) : (<Link className="underline" href="/register">Register </Link>)
         }

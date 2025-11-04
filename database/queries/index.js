@@ -5,7 +5,7 @@ import { reviewMoidel } from "@/models/review-model";
 import { userMoidel } from "@/models/user-model";
 import { isDateInBetween, replaceMongoInArray, replaceMongoInObject } from "@/utils/data-utils";
 
-export async function getAllHotels(destination, checkin, checkout, category) {
+export async function getAllHotels(destination, checkin, checkout, category, priceRange) {
     const regex = new RegExp(destination, "i");
 
     const hotelsByDestination = await hotelModel.find({ city: { $regex: regex } })
@@ -15,7 +15,6 @@ export async function getAllHotels(destination, checkin, checkout, category) {
 
     let allHotels = hotelsByDestination;
 
-
     if (category) {
         const categoriesToMatch = category.split("|");
 
@@ -24,7 +23,29 @@ export async function getAllHotels(destination, checkin, checkout, category) {
         })
     }
 
-    
+
+    if (priceRange) {
+        const ranges = priceRange.split("|");
+
+        allHotels = allHotels.filter(hotel => {
+
+            const avgRate = (hotel.highRate + hotel.lowRate) / 2;
+
+            return ranges.some(range => {
+                if (range === "6000") {
+                    return avgRate >= 5000;
+                }
+
+                const [min, max] = range.split("-").map(Number);
+
+                return avgRate >= min && avgRate <= max;
+            });
+        });
+    }
+
+
+
+
     if (checkin && checkout) {
 
         allHotels = await Promise.all(

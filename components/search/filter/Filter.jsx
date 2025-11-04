@@ -7,12 +7,10 @@ const Filter = () => {
   return (
     <>
       <div className="col-span-3 space-y-4">
-        <SortHotel />
-
         <FilterByPriceRange />
 
         <FilterByCategory />
-
+        <SortHotel />
         <FilterByAmenities />
       </div>
     </>
